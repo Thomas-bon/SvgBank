@@ -1,6 +1,6 @@
-
 <script setup>
-import tempcat from '../tempcat.json';
+
+import { categoryData } from '../store';
 import { iconsData } from '../store';
 
 const iconsByCategory = (catId) => iconsData.value.filter((i) => i.category === catId).length;
@@ -12,7 +12,7 @@ const iconsByCategory = (catId) => iconsData.value.filter((i) => i.category === 
 
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
       <RouterLink
-        v-for="cat in tempcat"
+        v-for="cat in categoryData"
         :key="cat._id"
         :to="`/category/${cat.slug}`"
         class="block"

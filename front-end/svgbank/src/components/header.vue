@@ -1,5 +1,17 @@
 <script setup>
+import { ref } from 'vue';
+import { useRouter } from 'vue-router';
 import SearchComponent from '@/components/search.vue';
+
+const search = ref('');
+const router = useRouter();
+
+function onSearchEnter() {
+  if (search.value.trim()) {
+    router.push({ name: 'Result', params: { query: search.value.trim() } });
+    search.value = '';
+  }
+}
 </script>
 
 <template>
@@ -11,7 +23,9 @@ import SearchComponent from '@/components/search.vue';
                 </div>
 
                 <div class="flex-1 mx-4">
-                    <SearchComponent v-model="search" />
+                    <form @submit.prevent="onSearchEnter">
+                        <SearchComponent v-model="search" />
+                    </form>
                 </div>
             </div>
         </div>
