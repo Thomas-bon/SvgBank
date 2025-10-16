@@ -1,0 +1,14 @@
+[
+  {
+    "_id": "68ef6a9a1ce1e2a233437075",
+    "name": "Interface",
+    "slug": "interface",
+    "description": "Icônes pour boutons, menus, éléments d’interface utilisateur."
+  },
+  {
+    "_id": "68ef6aa61ce1e2a233437076",
+    "name": "Réseaux sociaux",
+    "slug": "reseauxsociaux",
+    "description": "Logos et pictogrammes des réseaux sociaux."
+  }
+]
