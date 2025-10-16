@@ -59,20 +59,20 @@ export async function updateIcon(req, res) {
 }
 
 // Supprimer une icone
-// export async function deleteIcon(req, res) {
-//     try {
-//         const icon = await Icon.findByIdAndDelete(req.params.id);
+export async function deleteIcon(req, res) {
+    try {
+        const icon = await Icon.findByIdAndDelete(req.params.id);
 
-//         if (!icon) {
-//             return res.status(404).json({ message: "Icone non trouvée." });
-//         }
+        if (!icon) {
+            return res.status(404).json({ message: "Icone non trouvée." });
+        }
 
-//         res.json({ message: "✅ Icone supprimée avec succès.", icon });
-//     } catch (error) {
-//         console.error("❌ Erreur lors de la suppression de l'icone : ", error);
-        // res.status(500).json({ message: error.message });
-//     }
-// }
+        res.json({ message: "✅ Icone supprimée avec succès.", icon });
+    } catch (error) {
+        console.error("❌ Erreur lors de la suppression de l'icone : ", error);
+        res.status(500).json({ message: error.message });
+    }
+}
 
 // Récupérer toutes les catégories
 export async function getAllCategories(req, res) {

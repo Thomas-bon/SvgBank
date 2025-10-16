@@ -4,10 +4,13 @@ import {
     getIconById,
     createIcon,
     updateIcon,
-    // deleteIcon,
+    deleteIcon,
     getAllCategories,
     getCategoryById
 } from '../controllers/iconControllers.js';
+import { iconValidationRules } from '../validation/iconValidation.js';
+import { validateRequest } from '../validation/validateRequest.js';
+
 
 const router = express.Router();
 
@@ -18,8 +21,8 @@ router.get('/category/:id', getCategoryById);
 
 // Icônes
 router.get('/', getAllIcons);
-router.post('/', createIcon);
+router.post('/', iconValidationRules, validateRequest, createIcon);
 router.get('/:id', getIconById);
-router.put('/:id', updateIcon);
-
+router.put('/:id', iconValidationRules, validateRequest, updateIcon);
+router.delete('/:id', deleteIcon);
 export default router;
