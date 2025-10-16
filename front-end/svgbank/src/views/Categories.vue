@@ -1,11 +1,8 @@
 <script setup>
-import { ref, computed } from 'vue';
+import { computed } from 'vue';
 import { useRoute } from 'vue-router';
-import tempcat from '../tempcat.json';
+import { categoryData } from '../store';
 import { iconsData } from '../store';
-import SearchComponent from '@/components/search.vue';
-
-const search = ref('');
 
 const props = defineProps({
     iconId: {
@@ -16,8 +13,8 @@ const props = defineProps({
 
 const route = useRoute();
 
-const category = computed(() => tempcat.find((cat) => cat.slug === route.params.slug));
-const icons = computed(() => iconsData.value.filter((icon) => icon.category === category.value?._id && icon.name.toLowerCase().includes(search.value.toLowerCase())));
+const category = computed(() => categoryData.value.find((cat) => cat.slug === route.params.slug));
+const icons = computed(() => iconsData.value.filter((icon) => icon.category === category.value?._id));
 </script>
 
 <template>
