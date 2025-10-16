@@ -1,19 +1,25 @@
 import express from 'express';
 import {
     getAllIcons,
-    // getIconById,
+    getIconById,
     createIcon,
-    // updateIcon,
-    // deleteIcon
+    updateIcon,
+    // deleteIcon,
+    getAllCategories,
+    getCategoryById
 } from '../controllers/iconControllers.js';
 
 const router = express.Router();
 
-// Routes pour les icônes
+
+// 👉 Catégories D'ABORD pour éviter que '/:id' capte 'category'
+router.get('/category', getAllCategories);
+router.get('/category/:id', getCategoryById);
+
+// Icônes
 router.get('/', getAllIcons);
-// router.get('/:id', getIconById);
 router.post('/', createIcon);
-// router.put('/:id', updateIcon);
-// router.delete('/:id', deleteIcon);
+router.get('/:id', getIconById);
+router.put('/:id', updateIcon);
 
 export default router;
