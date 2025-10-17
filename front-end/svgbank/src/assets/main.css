@@ -1,1 +1,25 @@
 @import "tailwindcss";
+
+@font-face {
+    font-family: 'quicksand-light';
+    src: url('Quicksand_Light.otf');
+}
+
+@font-face {
+    font-family: 'quicksand-meduim';
+    src: url('Quicksand_Book.otf');
+}
+
+@font-face {
+    font-family: 'quicksand-bold';
+    src: url('Quicksand_Bold.otf');
+}
+
+* {
+    font-family: 'quicksand-bold', 'Arial';
+    color: rgb(24,49,83);
+}
+
+html, body, #app {
+  height: 100%;
+}
