@@ -8,7 +8,7 @@ export const iconValidationRules = [
     body('svg')
         .notEmpty().withMessage('Le SVG est requis.')
         .isString().withMessage('Le SVG doit être une chaîne de caractères.')
-        .isLength({ max: 500 }).withMessage('Le SVG ne doit pas dépasser 500 caractères.')
+        .isLength({ max: 900 }).withMessage('Le SVG ne doit pas dépasser 900 caractères.')
         .custom((value) => {
             if (!value.startsWith('<svg') || !value.endsWith('</svg>')) {
                 throw new Error('Le SVG doit commencer par <svg> et se terminer par </svg>.');
@@ -17,8 +17,7 @@ export const iconValidationRules = [
         }),
     body('category')
         .notEmpty().withMessage('La catégorie est requise.')
-        .custom((value) => {value => mongoose.Types.ObjectId.isValidObjectId(value)})
-        .withMessage('ID de catégorie invalide.'),
+        .isString().withMessage("La catégorie doit être une chaîne de caractères."),
     body('tags')
         .isArray().withMessage('Les tags doivent être un tableau.')
         .custom((tags) => {
