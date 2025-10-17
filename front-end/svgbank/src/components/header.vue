@@ -1,10 +1,11 @@
 <script setup>
-import { ref } from 'vue';
-import { useRouter } from 'vue-router';
+import { ref, computed } from 'vue';
+import { useRouter, useRoute } from 'vue-router';
 import SearchComponent from '@/components/search.vue';
 
 const search = ref('');
 const router = useRouter();
+const route = useRoute();
 
 function onSearchEnter() {
   if (search.value.trim()) {
@@ -12,6 +13,8 @@ function onSearchEnter() {
     search.value = '';
   }
 }
+
+const isHome = computed(() => route.name === 'home');
 </script>
 
 <template>
@@ -22,7 +25,7 @@ function onSearchEnter() {
                     <RouterLink to="/" class="text-lg font-semibold text-gray-800">SvgBank</RouterLink>
                 </div>
 
-                <div class="flex-1 mx-4">
+                <div v-if="!isHome">
                     <form @submit.prevent="onSearchEnter">
                         <SearchComponent v-model="search" />
                     </form>
