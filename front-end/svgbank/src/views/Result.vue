@@ -29,7 +29,7 @@ function closeModal() {
 </script>
 
 <template>
-  <div class="px-4 py-6">
+  <div class="px-4 py-6 bg-[rgb(240,241,243)] h-full">
     <h1 class="text-2xl font-semibold mb-2">Résultat pour : "{{ query }}"</h1>
 
     <div v-if="icons.length === 0" class="text-gray-500 py-8">

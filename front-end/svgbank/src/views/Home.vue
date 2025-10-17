@@ -18,13 +18,13 @@ function onSearchEnter() {
 </script>
 
 <template>
-  <div class="w-full h-75 bg-red-500 flex items-center justify-center mb-6">
+  <div class="w-full h-75 bg-[rgb(24,49,83)] flex items-center justify-center mb-6">
     <form @submit.prevent="onSearchEnter" class="w-full flex justify-center">
       <SearchComponent v-model="search" />
     </form>
   </div>
 
-  <div class="px-4 py-6 max-w-7xl mx-auto">
+  <div class="px-4 py-6 max-w-7xl mx-auto h-full">
     <h1 class="text-2xl font-semibold mb-6">Categories</h1>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
@@ -35,13 +35,13 @@ function onSearchEnter() {
         class="block"
       >
         <div
-          class="bg-white rounded-lg p-4 shadow-sm hover:shadow-md transition-transform transform h-full flex flex-col justify-between"
+          class="bg-[rgb(99,230,190)] border-2 border-b-8 border-[rgb(24,49,83)] rounded-2xl p-4 h-full flex flex-col justify-between"
         >
           <div>
             <h2 class="text-lg font-medium text-gray-800">{{ cat.name }}</h2>
             <p class="text-sm text-gray-500 mt-2 truncate">{{ cat.description }}</p>
           </div>
-          <div class="mt-4 text-sm text-gray-600">{{ iconsByCategory(cat._id) }} icons</div>
+          <div class="mt-4 text-sm text-gray-600">{{ iconsByCategory(cat._id) }} icônes</div>
         </div>
       </RouterLink>
     </div>

@@ -22,7 +22,7 @@ const isHome = computed(() => route.name === 'home');
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
                 <div class="flex items-center space-x-6">
-                    <RouterLink to="/" class="text-lg font-semibold text-gray-800">SvgBank</RouterLink>
+                    <RouterLink to="/" class="text-lg font-semibold text-gray-800 flex justify-center items-center gap-1"><img src="../assets/logo.svg" class="h-[25px] inline-block items-center"></img> SvgBank</RouterLink>
                 </div>
 
                 <div v-if="!isHome">
