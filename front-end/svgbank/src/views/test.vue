@@ -64,9 +64,9 @@ async function saveIcon() {
         <h1 class="text-xl font-semibold mb-4">🧪 Page de test</h1>
 
         <!-- bouton qui ouvre la popup d’édition -->
-        <button class="px-4 py-2 bg-blue-600 text-white rounded cursor-pointer" @click="isEditOpen = true">
+        <!-- <button class="px-4 py-2 bg-blue-600 text-white rounded cursor-pointer" @click="isEditOpen = true">
             ✏️ Modifier l’icône
-        </button>
+        </button> -->
 
         <!-- MODAL GÉNÉRIQUE réutilisable -->
         <BaseModal v-model="isEditOpen" :panelClass="'w-[85%] max-w-[90%] h-[80%]'">
@@ -102,7 +102,6 @@ async function saveIcon() {
                         <div class="flex flex-col items-center">
                             <div class="w-24 h-24 mb-3" v-html="selectedIcon.svg"></div>
                             <p class="text-lg font-medium">{{ selectedIcon.name }}</p>
-                            <p class="text-gray-500 text-sm">{{ selectedIcon.category }}</p>
                         </div>
 
                         <hr class="my-4" />
@@ -175,3 +174,4 @@ async function saveIcon() {
         </BaseModal>
     </section>
 </template>
+

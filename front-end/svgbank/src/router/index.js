@@ -2,7 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '@/views/Home.vue'
 import CategoriesView from '@/views/Categories.vue'
 import Result from '@/views/Result.vue'
-import Manage from '@/views/test.vue'
+import Manage from '@/views/ManagerIcon.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
