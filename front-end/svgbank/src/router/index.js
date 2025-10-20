@@ -2,7 +2,6 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '@/views/Home.vue'
 import CategoriesView from '@/views/Categories.vue'
 import Result from '@/views/Result.vue'
-import Manage from '@/views/ManagerIcon.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -22,12 +21,6 @@ const router = createRouter({
       path: '/search/:query',
       name: 'Result',
       component: Result,
-      props: true
-    },
-    {
-      path: '/manageIcon/',
-      name: 'Manage',
-      component: Manage,
       props: true
     }
   ],

@@ -3,6 +3,11 @@ import { ref } from 'vue';
 export const iconsData = ref([]);
 export const categoryData = ref([]);
 
+// --- UI globale (modale éditeur d’icône) ---
+export const isIconEditorOpen = ref(false);
+export const selectedIconId = ref(null);
+
+
 // Exemple d'objet icône
 // {
 //     _id: ObjectId('68f0d38fd21875fc41983b6d'),

@@ -24,7 +24,7 @@ function onSearchEnter() {
     </form>
   </div>
 
-  <div class="px-4 py-6 max-w-7xl mx-auto h-full">
+  <div class="px-4 py-6 max-w-7xl mx-auto h-full text-[rgb(24,49,83)]">
     <h1 class="text-2xl font-semibold mb-6">Categories</h1>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
@@ -39,9 +39,9 @@ function onSearchEnter() {
         >
           <div>
             <h2 class="text-lg font-medium text-gray-800">{{ cat.name }}</h2>
-            <p class="text-sm text-gray-500 mt-2 truncate">{{ cat.description }}</p>
+            <p class="text-sm  mt-2 truncate">{{ cat.description }}</p>
           </div>
-          <div class="mt-4 text-sm text-gray-600">{{ iconsByCategory(cat._id) }} icônes</div>
+          <div class="mt-4 text-sm ">{{ iconsByCategory(cat._id) }} icônes</div>
         </div>
       </RouterLink>
     </div>
