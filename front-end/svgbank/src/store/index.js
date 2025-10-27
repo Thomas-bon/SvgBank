@@ -7,6 +7,8 @@ export const categoryData = ref([]);
 export const isIconEditorOpen = ref(false);
 export const selectedIconId = ref(null);
 
+export const isCreateIconOpen = ref(false);
+
 
 // Exemple d'objet icône
 // {
