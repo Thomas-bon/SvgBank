@@ -1,3 +1,49 @@
+
+<script setup>
+import { ref, watch, onMounted } from 'vue'
+import CreateIcon from './IconCreate.vue'
+import { openIconEditor, openCreateIcon, openDeleteIcon } from '../store/uiState.js'
+
+const STORAGE_KEY = 'sidebar:isOpen'
+const isOpen = ref(false)
+
+
+onMounted(() => {
+    const raw = localStorage.getItem(STORAGE_KEY)
+    if (raw !== null) isOpen.value = raw === 'true'
+})
+
+watch(isOpen, (v) => {
+    localStorage.setItem(STORAGE_KEY, String(v))
+})
+
+function toggle() {
+    isOpen.value = !isOpen.value
+}
+
+/* Icônes forcées en blanc via stroke="#fff" */
+const icons = {
+    home: `<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.5L12 3l9 6.5V21a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1V9.5z"/></svg>`,
+    search: `<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>`,
+}
+
+const itemsTop = [
+    { label: 'Accueil', icon: icons.home, onClick: () => console.log('Accueil') },
+    { label: 'Rechercher', icon: icons.search, onClick: () => console.log('Search') },
+]
+
+const itemsBottom = [
+    { label: 'Upload une icône', icon: icons.home, onClick: () => openCreateIcon() },
+    { label: 'Mettre à jour une icône', icon: icons.home, onClick: () => openIconEditor() },
+    { label: 'Supprimer une icône', icon: icons.home, onClick: () => openDeleteIcon() },
+]
+
+
+</script>
+
+
 <template>
     <aside
         class="relative h-screen bg-[rgb(24,49,83)] text-white flex flex-col border-r border-gray-800 transition-all duration-300 ease-in-out"
@@ -77,48 +123,3 @@
         </div>
     </aside>
 </template>
-
-<script setup>
-import { ref, watch, onMounted } from 'vue'
-import { openIconEditor } from '../store/uiState.js'
-
-const STORAGE_KEY = 'sidebar:isOpen'
-const isOpen = ref(false)
-
-onMounted(() => {
-    const raw = localStorage.getItem(STORAGE_KEY)
-    if (raw !== null) isOpen.value = raw === 'true'
-})
-
-watch(isOpen, (v) => {
-    localStorage.setItem(STORAGE_KEY, String(v))
-})
-
-function toggle() {
-    isOpen.value = !isOpen.value
-}
-
-/* Icônes forcées en blanc via stroke="#fff" */
-const icons = {
-    home: `<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"
-    stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.5L12 3l9 6.5V21a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1V9.5z"/></svg>`,
-    search: `<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"
-    stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>`,
-}
-
-const itemsTop = [
-    { label: 'Accueil', icon: icons.home, onClick: () => console.log('Accueil') },
-    { label: 'Rechercher', icon: icons.search, onClick: () => console.log('Search') },
-]
-
-const itemsBottom = [
-    { label: 'Upload une icône', icon: icons.home, onClick: () => console.log('addIcon') },
-    { label: 'Mettre à jour une icône', icon: icons.home, onClick: () => openIconEditor() },
-    { label: 'Supprimer une icône', icon: icons.home, onClick: () => console.log('deleteIcon') },
-]
-
-
-function logout() {
-    console.log('Logout')
-}
-</script>
