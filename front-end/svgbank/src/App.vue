@@ -46,7 +46,7 @@ function handleCreateOpen() {
 
     <div class="flex-1 flex flex-col">
       <HeaderComponent class="border-b border-gray-800" />
-      <main class="flex-1 overflow-auto p-6">
+      <main class="flex-1 overflow-auto bg-[rgb(240,241,243)]">
         <RouterView />
       </main>
     </div>
