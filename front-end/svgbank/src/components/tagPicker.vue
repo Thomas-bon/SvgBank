@@ -78,12 +78,12 @@ function onBlur() { setTimeout(() => (open.value = false), 120); } // laisse le 
       <span
         v-for="tag in modelValue"
         :key="tag"
-        class="inline-flex items-center gap-2 bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-sm"
+        class="inline-flex items-center gap-2 bg-[#ffd43b] text-[rgb(24,49,83)] px-2 py-1 rounded-full text-sm"
       >
         {{ tag }}
         <button
           type="button"
-          class="text-blue-700 hover:text-blue-900"
+          class="text-[rgb(24,49,83)]"
           @click.stop="removeTag(tag)"
           aria-label="Retirer"
         >

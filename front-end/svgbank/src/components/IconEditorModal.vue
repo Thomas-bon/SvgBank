@@ -63,7 +63,7 @@ function onSave() {
             <div :class="selectedIcon && selectedIcon._id === i._id ? 'w-24 h-24' : 'w-16 h-16'"
                  class="flex items-center justify-center"
                  v-html="i.svg"></div>
-            <p :class="selectedIcon && selectedIcon._id === i._id ? 'text-blue-700 font-semibold' : ''"
+            <p :class="selectedIcon && selectedIcon._id === i._id ? 'text-[rgb(99,230,190)] font-semibold' : ''"
                class="text-center text-sm font-medium mt-2 text-gray-700 truncate w-full">
               {{ i.name }}
             </p>
@@ -74,7 +74,7 @@ function onSave() {
       <!-- Formulaire droite -->
       <div class="h-full w-[55%] border-2 border-gray-300 rounded-2xl p-4">
         <template v-if="selectedIcon">
-          <h3 class="text-lg font-semibold mb-4 text-blue-600">Icône sélectionnée :</h3>
+          <h3 class="text-lg font-semibold mb-4 text-[rgb(99,230,190)]">Icône sélectionnée :</h3>
 
           <div class="flex flex-col items-center">
             <div class="w-24 h-24 mb-3" v-html="selectedIcon.svg"></div>
@@ -96,7 +96,7 @@ function onSave() {
               <div class="mt-2 text-sm">
                 <template v-if="selectedIcon?.category">
                   <p class="text-gray-700">Catégorie actuelle :
-                    <span class="font-semibold text-blue-700">{{ selectedCategoryName ?? "Inconnue" }}</span>
+                    <span class="font-semibold text-[rgb(99,230,190)]">{{ selectedCategoryName ?? "Inconnue" }}</span>
                   </p>
                 </template>
                 <template v-else>
@@ -124,8 +124,8 @@ function onSave() {
     </div>
 
     <template #footer>
-      <button class="px-3 py-2 rounded bg-gray-200 cursor-pointer" @click="isOpen = false">Annuler</button>
-      <button class="px-3 py-2 rounded bg-blue-600 text-white cursor-pointer" @click="onSave">Enregistrer</button>
+      <button class="px-3 py-2 rounded-2xl border-[rgb(24,49,83)] border-2 border-b-8 cursor-pointer" @click="isOpen = false">Annuler</button>
+      <button class="px-3 py-2 rounded-2xl bg-[rgb(99,230,190)] border-[rgb(24,49,83)] border-2 border-b-8 cursor-pointer" @click="onSave">Enregistrer</button>
     </template>
   </BaseModal>
 </template>

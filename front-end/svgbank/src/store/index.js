@@ -25,7 +25,7 @@ export const selectedIconId = ref(null);
 
 
 export async function getIcons() {
-    const response = await fetch("http://127.0.0.1:4000/api/icons/");
+    const response = await fetch("http://192.168.10.111:4000/api/icons/");
     if (!response.ok) {
         throw new Error('Could not fetch data');
     }
@@ -38,7 +38,7 @@ export async function getIcons() {
 getIcons();
 
 export async function getCategory() {
-    const response = await fetch("http://127.0.0.1:4000/api/icons/category/");
+    const response = await fetch("http://192.168.10.111:4000/api/icons/category/");
     if (!response.ok) {
         throw new Error('Could not fetch data');
     }
@@ -51,7 +51,7 @@ export async function getCategory() {
 getCategory();
 
 export async function createIcon(icon) {
-    const response = await fetch("http://127.0.0.1:4000/api/icons/", {
+    const response = await fetch("http://192.168.10.111:4000/api/icons/", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -67,7 +67,7 @@ export async function createIcon(icon) {
 }
 
 export async function updateIcon(iconId, icon) {
-    const response = await fetch(`http://127.0.0.1:4000/api/icons/${iconId}/`, {
+    const response = await fetch(`http://192.168.10.111:4000/api/icons/${iconId}/`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json"
@@ -87,7 +87,7 @@ export async function updateIcon(iconId, icon) {
 }
 
 export async function deleteIcon(iconId) {  
-    const response = await fetch(`http://127.0.0.1:4000/api/icons/${iconId}/`, {
+    const response = await fetch(`http://192.168.10.111:4000/api/icons/${iconId}/`, {
         method: "DELETE"
     });
     if (!response.ok) {
