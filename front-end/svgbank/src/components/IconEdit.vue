@@ -57,8 +57,8 @@ function onSave() {
               :class="[
                 'flex flex-col items-center justify-between border rounded-xl p-3 cursor-pointer transition-all duration-200',
                 selectedIcon && selectedIcon._id === i._id
-                  ? 'scale-110 bg-blue-100 border-blue-500 shadow-md'
-                  : 'scale-100 bg-gray-50 hover:bg-blue-50 border-gray-300'
+                  ? 'scale-110 border-[rgb(99,230,190)]'
+                  : 'scale-100 bg-gray-50 border-gray-300'
               ]">
             <div :class="selectedIcon && selectedIcon._id === i._id ? 'w-24 h-24' : 'w-16 h-16'"
                  class="flex items-center justify-center"

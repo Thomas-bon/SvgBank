@@ -42,24 +42,45 @@ async function onDelete() {
 
     <div class="p-4">
       <ul class="max-h-64 overflow-y-auto">
-        <li v-for="icon in icons" :key="icon._id" 
-            @click="pickIcon(icon)"
-            :class="[
-              'p-2 cursor-pointer rounded border mb-2 flex items-center gap-2',
-              selectedIcon && selectedIcon._id === icon._id ? 'bg-red-100 border-red-500' : 'bg-gray-50 border-gray-300'
-            ]">
+        <li
+          v-for="icon in icons"
+          :key="icon._id"
+          @click="pickIcon(icon)"
+          :class="[
+            'p-2 cursor-pointer rounded border mb-2 flex items-center gap-2',
+            selectedIcon && selectedIcon._id === icon._id
+              ? 'bg-red-100 border-red-500'
+              : 'bg-gray-50 border-[rgb(195,198,209)]'
+          ]"
+        >
           <div class="w-8 h-8 flex items-center justify-center" v-html="icon.svg"></div>
           <span class="truncate">{{ icon.name }}</span>
         </li>
       </ul>
 
-      <p v-if="!selectedIcon" class="text-gray-500 mt-2">Sélectionne une icône à supprimer.</p>
-      <p v-else class="text-red-600 mt-2">Tu es sur le point de supprimer : <strong>{{ selectedIcon.name }}</strong></p>
+      <p v-if="!selectedIcon" class="text-gray-500 mt-2">
+        Sélectionne une icône à supprimer.
+      </p>
+      <p v-else class="text-red-600 mt-2">
+        Tu es sur le point de supprimer : <strong>{{ selectedIcon.name }}</strong>
+      </p>
     </div>
 
     <template #footer>
-      <button class="px-3 py-2 rounded bg-gray-200 mr-2" @click="isOpen = false">Annuler</button>
-      <button class="px-3 py-2 rounded bg-red-600 text-white" @click="onDelete" :disabled="!selectedIcon">Supprimer</button>
+      <button
+        class="px-3 py-2 rounded-2xl border-[rgb(24,49,83)] border-2 border-b-8 cursor-pointer mr-2"
+        @click="isOpen = false"
+      >
+        Annuler
+      </button>
+      <button
+        class="px-3 py-2 rounded-2xl bg-red-500 border-[rgb(24,49,83)] border-2 border-b-8 cursor-pointer text-white"
+        @click="onDelete"
+        :disabled="!selectedIcon"
+      >
+        Supprimer
+      </button>
     </template>
   </BaseModal>
 </template>
+

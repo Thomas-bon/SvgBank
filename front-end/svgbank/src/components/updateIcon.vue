@@ -19,12 +19,10 @@ function close() {
   emit("close");
 }
 
-// ESC pour fermer
 function onKeydown(e) {
   if (props.closeOnEsc && e.key === "Escape") close();
 }
 
-// (optionnel) bloquer le scroll arrière-plan quand la modal est ouverte
 watch(
   () => props.modelValue,
   (isOpen) => {
@@ -37,7 +35,6 @@ watch(
 onMounted(() => window.addEventListener("keydown", onKeydown));
 onBeforeUnmount(() => window.removeEventListener("keydown", onKeydown));
 
-// Expose si tu veux pouvoir appeler open()/close() depuis le parent via ref
 defineExpose({ open, close });
 </script>
 
@@ -52,7 +49,7 @@ defineExpose({ open, close });
       />
       <!-- Fenêtre -->
       <div
-        class="relative bg-white rounded-lg shadow-lg p-9 z-10 overflow-auto"
+        class="relative bg-white rounded-lg p-9 z-10 overflow-auto"
         :class="panelClass"
         @click.stop
       >
@@ -60,9 +57,9 @@ defineExpose({ open, close });
         <button
           @click="close"
           aria-label="Fermer"
-          class="absolute top-3 right-3 text-gray-600 hover:text-gray-900 cursor-pointer"
+          class="absolute top-2 right-3 text-gray-500 text-2xl"
         >
-          ✕
+          &times;
         </button>
 
         <!-- Header -->

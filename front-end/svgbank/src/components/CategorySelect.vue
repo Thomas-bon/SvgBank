@@ -35,24 +35,24 @@ function onBlur() { setTimeout(() => (open.value = false), 120); }
       v-model="q"
       :placeholder="placeholder"
       type="text"
-      class="w-full border rounded-lg p-2 outline-none focus:ring-2 ring-blue-500"
+      class="w-full border-[rgb(195,198,209)] border-2 rounded-2xl p-2 outline-none focus:ring-2 ring-[rgb(99,230,190)]"
       @focus="onFocus"
       @blur="onBlur"
     />
 
     <div
       v-if="open && filtered.length"
-      class="absolute z-10 mt-1 w-full bg-white border rounded-lg shadow-lg max-h-48 overflow-auto"
+      class="absolute z-10 mt-1 w-full bg-white border-[rgb(195,198,209)] border-2 rounded-2xl max-h-48 overflow-auto"
     >
       <ul>
         <li
           v-for="c in filtered"
           :key="c._id"
-          class="px-3 py-2 hover:bg-blue-50 cursor-pointer flex justify-between"
+          class="px-3 py-2 hover:bg-[rgb(195,198,209)] cursor-pointer flex justify-between"
           @mousedown.prevent="selectCategory(c)"
         >
           <span>{{ c.name }}</span>
-          <span v-if="modelValue === c._id" class="text-blue-600 font-semibold">✓</span>
+          <span v-if="modelValue === c._id" class="text-[rgb(99,230,190)] font-semibold">✓</span>
         </li>
       </ul>
     </div>

@@ -5,7 +5,7 @@ import TagPicker from "@/components/tagPicker.vue";
 import CategorySelect from "@/components/CategorySelect.vue";
 
 const props = defineProps({
-  modelValue: { type: Boolean, default: false }, // v-model ouvert/fermé
+  modelValue: { type: Boolean, default: false },
   categories: { type: Array, default: () => [] },
   tagSuggestions: { type: Array, default: () => [] },
 });
@@ -51,32 +51,44 @@ function onSave() {
       <form class="grid gap-4" @submit.prevent="onSave">
         <label class="grid gap-1">
           <span>Nom</span>
-          <input v-model.trim="newIcon.name" class="border rounded p-2" required />
+          <input v-model.trim="newIcon.name" class="border-[rgb(195,198,209)] border-2 rounded-2xl p-2" required />
         </label>
 
         <label class="grid gap-1">
           <span>Catégorie</span>
           <CategorySelect v-model="newIcon.category" :options="categories" placeholder="Choisir une catégorie…" />
           <div class="mt-1 text-sm text-gray-500">
-            Catégorie actuelle : <span class="font-semibold">{{ selectedCategoryName || "—" }}</span>
+            Catégorie actuelle :
+            <span class="font-semibold">{{ selectedCategoryName || "—" }}</span>
           </div>
         </label>
 
         <label class="grid gap-1">
           <span>SVG</span>
-          <textarea v-model="newIcon.svg" rows="4" class="border rounded p-2" required placeholder="<svg>...</svg>"></textarea>
+          <textarea v-model="newIcon.svg" rows="4" class="border-[rgb(195,198,209)] border-2 rounded-2xl p-2" required placeholder="<svg>...</svg>"></textarea>
         </label>
 
         <label class="grid gap-1">
           <span>Tags</span>
           <TagPicker v-model="newIcon.tags" :suggestions="tagSuggestions" placeholder="Rechercher/ajouter un tag…" />
         </label>
-
-        <div class="flex justify-end gap-2 mt-4">
-          <button type="button" class="px-3 py-2 rounded bg-gray-200" @click="isOpen = false">Annuler</button>
-          <button type="submit" class="px-3 py-2 rounded bg-blue-600 text-white">Créer</button>
-        </div>
       </form>
     </div>
+
+    <template #footer>
+      <button
+        class="px-3 py-2 rounded-2xl border-[rgb(24,49,83)] border-2 border-b-8 cursor-pointer"
+        @click="isOpen = false"
+      >
+        Annuler
+      </button>
+      <button
+        class="px-3 py-2 rounded-2xl bg-[rgb(255,212,59)] border-[rgb(24,49,83)] border-2 border-b-8 cursor-pointer"
+        @click="onSave"
+      >
+        Créer
+      </button>
+    </template>
   </BaseModal>
 </template>
+

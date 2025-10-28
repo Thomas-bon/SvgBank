@@ -72,7 +72,7 @@ function onBlur() { setTimeout(() => (open.value = false), 120); } // laisse le 
 <template>
   <div class="w-full">
     <div
-      class="flex flex-wrap gap-2 border rounded-lg p-2 focus-within:ring-2 ring-blue-500 bg-white"
+      class="flex flex-wrap gap-2 border-[rgb(195,198,209)] border-2 rounded-2xl p-2 focus-within:ring-2 ring-[rgb(99,230,190)] bg-white"
       @click="inputEl?.focus()"
     >
       <span
@@ -105,13 +105,13 @@ function onBlur() { setTimeout(() => (open.value = false), 120); } // laisse le 
 
     <div
       v-if="open && (filtered.length || (allowNew && q.trim()))"
-      class="mt-2 border rounded-lg bg-white shadow-lg max-h-64 overflow-auto"
+      class="mt-2 border-[rgb(195,198,209)] border-2 rounded-2xl bg-white max-h-64 overflow-auto"
     >
       <ul>
         <li
           v-for="s in filtered"
           :key="s"
-          class="px-3 py-2 hover:bg-blue-50 cursor-pointer flex justify-between items-center"
+          class="px-3 py-2 hover:bg-[rgb(195,198,209)] cursor-pointer flex justify-between items-center"
           @mousedown.prevent="addTag(s)"
         >
           <span>{{ s }}</span>
@@ -120,7 +120,7 @@ function onBlur() { setTimeout(() => (open.value = false), 120); } // laisse le 
 
         <li
           v-if="allowNew && q.trim() && !filtered.length"
-          class="px-3 py-2 hover:bg-blue-50 cursor-pointer flex justify-between items-center"
+          class="px-3 py-2 hover:bg-[rgb(195,198,209)] cursor-pointer flex justify-between items-center"
           @mousedown.prevent="addTag(q)"
         >
           <span>Créer “{{ norm(q) }}”</span>

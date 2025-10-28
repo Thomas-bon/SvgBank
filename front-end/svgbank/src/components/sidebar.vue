@@ -51,7 +51,7 @@ const itemsBottom = [
         :class="isOpen ? 'w-64' : 'w-16'" :aria-expanded="isOpen.toString()" style="color: white !important;">
 
         <button
-            class="absolute cursor-pointer -right-3 top-4 z-10 h-6 w-6 rounded-full bg-[rgb(24,49,83)] border border-gray-700 shadow flex items-center justify-center focus:outline-none focus:ring focus:ring-[rgb(99,230,190)] text-white"
+            class="absolute cursor-pointer -right-3 top-4 z-10 h-6 w-6 rounded-full bg-[rgb(24,49,83)] border border-gray-700 flex items-center justify-center focus:outline-none focus:ring focus:ring-[rgb(99,230,190)] text-white"
             @click="toggle()" :aria-label="isOpen ? 'Réduire la barre latérale' : 'Déplier la barre latérale'">
             <svg class="h-4 w-4 transition-transform duration-300" :class="isOpen ? 'rotate-0' : 'rotate-180'"
                 viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -89,7 +89,7 @@ const itemsBottom = [
                         </span>
 
                         <span v-if="!isOpen"
-                            class="absolute left-16 z-20 origin-left scale-95 opacity-0 group-hover:opacity-100 group-hover:scale-100 transition-all duration-150 bg-gray-800/95 text-xs px-2 py-1 rounded shadow border border-gray-700 text-white">
+                            class="absolute left-16 z-20 origin-left scale-95 opacity-0 group-hover:opacity-100 group-hover:scale-100 transition-all duration-150 bg-gray-800/95 text-xs px-2 py-1 rounded border border-gray-700 text-white">
                             {{ item.label }}
                         </span>
                     </button>
@@ -111,7 +111,7 @@ const itemsBottom = [
                     </span>
                     
                     <span v-if="!isOpen"
-                        class="absolute left-16 z-20 origin-left scale-95 opacity-0 group-hover:opacity-100 group-hover:scale-100 transition-all duration-150 bg-gray-800/95 text-xs px-2 py-1 rounded shadow border border-gray-700 text-white">
+                        class="absolute left-16 z-20 origin-left scale-95 opacity-0 group-hover:opacity-100 group-hover:scale-100 transition-all duration-150 bg-gray-800/95 text-xs px-2 py-1 rounded border border-gray-700 text-white">
                         {{ item.label }}
                     </span>
                 </button>
